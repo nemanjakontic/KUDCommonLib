@@ -6,12 +6,14 @@
 package domain;
 
 import java.io.Serializable;
+import java.sql.ResultSet;
+import java.util.List;
 
 /**
  *
  * @author Nemanja
  */
-public class User implements Serializable {
+public class User implements Serializable,IDomainObject {
 
     private Long id;
     private String username;
@@ -78,6 +80,95 @@ public class User implements Serializable {
 
     public void setFirstname(String firstname) {
         this.firstname = firstname;
+    }
+
+    @Override
+    public String getTableName() {
+        return "users";
+    }
+
+    @Override
+    public String getAllColumnNames() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getValuesForInsert() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getKeyName() {
+        return "username";
+    }
+
+    @Override
+    public String getKeyValue() {
+        return "'" + getUsername() + "'";
+    }
+
+    @Override
+    public String getColumnNameAndValuesForUpdate() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<IDomainObject> napraviListu(ResultSet rs) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public IDomainObject napraviZaJednog(ResultSet rs) throws Exception {
+        User user = null;
+        if (rs.next()) {
+            user = new User();
+            user.setFirstname(rs.getString("ime"));
+            user.setLastname(rs.getString("prezime"));
+            user.setEmail(rs.getString("email"));
+            user.setUsername(rs.getString("username"));
+            user.setId(rs.getLong("id"));
+        }
+        return user;
+    }
+
+    @Override
+    public String vratiKriterijum() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int vratiBrojVezanihObjekata() {
+        return 0;
+    }
+
+    @Override
+    public int vratiBrojSlogovaVezanogObjekta(int j) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public IDomainObject vratiSlogVezanogObjekta(int j, int i) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String vratiJoinUslov() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String vratiWhereUslov() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public IDomainObject vratiVezaniObjekat(int j) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setListuVezanih(List<? extends IDomainObject> listica, int j) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
