@@ -79,9 +79,15 @@ public class StavkaOtpremnice implements Serializable, IDomainObject{
         
         sb.append(getRedniBroj()).append(",")
                 .append(getSifraOtpremnice()).append(",")
-                .append(getKolicina()).append(",")
+                .append(getKolicina());
+        if(getNosnja() != null){
+            Nosnja n = new Nosnja();
+            n.setSifraNosnje(9l);
+            setNosnja(nosnja);
+            sb.append(",")
                 .append(getNosnja().getSifraNosnje());
-                
+        }
+        
         String values = sb.toString();
         return values;
     }
@@ -167,6 +173,11 @@ public class StavkaOtpremnice implements Serializable, IDomainObject{
 
     @Override
     public void setListuVezanih(List<? extends IDomainObject> listica, int j) {
+        
+    }
+
+    @Override
+    public void obrisiTajJedan(int j) {
         
     }
     

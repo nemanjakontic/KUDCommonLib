@@ -321,6 +321,11 @@ public class Clan implements Serializable, IDomainObject{
         
     }
 
+    @Override
+    public void obrisiTajJedan(int j) {
+        
+    }
+
     
 
    

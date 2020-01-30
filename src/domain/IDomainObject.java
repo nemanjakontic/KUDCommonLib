@@ -47,4 +47,6 @@ public interface IDomainObject extends Serializable{
     public IDomainObject vratiVezaniObjekat(int j);
 
     public void setListuVezanih(List<? extends IDomainObject> listica, int j);
+
+    public void obrisiTajJedan(int j);
 }

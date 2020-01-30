@@ -275,18 +275,18 @@ public class Otpremnica implements Serializable, IDomainObject {
     public IDomainObject vratiVezaniObjekat(int j) {
         StavkaOtpremnice st = new StavkaOtpremnice();
         IzmeneOtpremnice izm = new IzmeneOtpremnice();
-        if (stavkaOtpremnice.isEmpty()) {
+        /*if (stavkaOtpremnice.isEmpty()) {
             stavkaOtpremnice.add(st);
         }
         if (izmenaOtpremnice.isEmpty()) {
             izmenaOtpremnice.add(izm);
-        }
+        }*/
         if (j == 0) {
-            return stavkaOtpremnice.get(0);
-        } else {
-            return izmenaOtpremnice.get(0);
+            return st;
+        } else if(j == 1){
+            return izm;
         }
-        //return null;
+        return null;
     }
 
     @Override
@@ -296,6 +296,13 @@ public class Otpremnica implements Serializable, IDomainObject {
         }
         if (j == 1) {
             this.izmenaOtpremnice = (List<IzmeneOtpremnice>) listica;
+        }
+    }
+
+    @Override
+    public void obrisiTajJedan(int j) {
+        if (j == 0) {
+            stavkaOtpremnice.remove(0);
         }
     }
 

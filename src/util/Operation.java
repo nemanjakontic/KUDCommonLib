@@ -32,4 +32,6 @@ public interface Operation {
     public static final int VRATI_OTPREMNICE_PO_KRITERIJUMU = 17;
     public static final int OBRISI_OTPREMNICU = 18;
     public static final int IZMENI_OTPREMNICU = 19;
+    
+    public static final int GASENJE = 20;
 }

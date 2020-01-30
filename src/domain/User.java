@@ -171,4 +171,9 @@ public class User implements Serializable,IDomainObject {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    @Override
+    public void obrisiTajJedan(int j) {
+        
+    }
+
 }

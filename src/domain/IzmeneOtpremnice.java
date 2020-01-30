@@ -80,7 +80,7 @@ public class IzmeneOtpremnice implements Serializable, IDomainObject {
 
         sb.append(getRb()).append(",")
                 .append(getSifraOtpremnice()).append(",")
-                .append(getDatumIzmene()).append(",")
+                .append("'").append(new java.sql.Date(getDatumIzmene().getTime())).append("'").append(",")
                 .append(getNosnja().getSifraNosnje());
 
         String values = sb.toString();
@@ -168,6 +168,11 @@ public class IzmeneOtpremnice implements Serializable, IDomainObject {
 
     @Override
     public void setListuVezanih(List<? extends IDomainObject> listica, int j) {
+        
+    }
+
+    @Override
+    public void obrisiTajJedan(int j) {
         
     }
 

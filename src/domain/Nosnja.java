@@ -179,7 +179,7 @@ public class Nosnja implements Serializable, IDomainObject {
     @Override
     public String getColumnNameAndValuesForUpdate() {
         return "vrstaNosnje = '" + String.valueOf(getVrstaNosnje())
-                + "', pol = " + String.valueOf(getPol()) + "', nazivNosnje = "
+                + "', pol = '" + String.valueOf(getPol()) + "', nazivNosnje = '"
                 + getNazivNosnje() + "', kolicina = " + getKolicina()
                 + ", opisNosnje = '" + getOpis() + "', vrstaBeline = '"
                 + String.valueOf(getVrstaBeline()) + "', vrstaOpanaka = '"
@@ -302,6 +302,11 @@ public class Nosnja implements Serializable, IDomainObject {
 
     @Override
     public void setListuVezanih(List<? extends IDomainObject> listica, int j) {
+        
+    }
+
+    @Override
+    public void obrisiTajJedan(int j) {
         
     }
 
