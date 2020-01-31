@@ -147,7 +147,8 @@ public class Otpremnica implements Serializable, IDomainObject {
 
     @Override
     public String getColumnNameAndValuesForUpdate() {
-        return "";
+        return "datumKreiranja = '" + new java.sql.Date(getDatumKreiranja().getTime()) + 
+                "', aktivna = " + isAktivna() + ", brojCK = " + getClan().getBrojCK();
     }
 
     @Override
